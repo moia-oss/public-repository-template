@@ -1,0 +1,1 @@
+For any security reports please reachout to security@moia.io
