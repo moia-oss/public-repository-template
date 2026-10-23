@@ -1,1 +1,51 @@
-# ensure that your dependencies are kept up to date
+# Keep the dependencies up to date.
+#
+# Only `github-actions` is active, because each repository has workflows.
+# Remove the comment marks from the ecosystems that this repository uses.
+# Dependabot reports an error for an ecosystem that has no manifest file.
+# Docs: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+version: 2
+
+multi-ecosystem-groups:
+  dependencies:
+    schedule:
+      interval: "monthly"
+    labels: ["dependabot"]
+
+updates:
+  - package-ecosystem: "github-actions"
+    directories: ["/"] # always "/" for github-actions; a **/* glob matches neither .github/workflows nor a root action.yml
+    patterns: ["*"]
+    cooldown:
+      default-days: 14
+    multi-ecosystem-group: "dependencies"
+
+  # - package-ecosystem: "npm"
+  #   directories: ["/"] # REPLACE: the directories that contain a package.json
+  #   patterns: ["*"]
+  #   cooldown:
+  #     default-days: 14
+  #   multi-ecosystem-group: "dependencies"
+
+  # - package-ecosystem: "gomod"
+  #   directories: ["/"] # REPLACE: the directories that contain a go.mod
+  #   patterns: ["*"]
+  #   cooldown:
+  #     default-days: 14
+  #   multi-ecosystem-group: "dependencies"
+
+  # `pip` and `uv` are separate Dependabot ecosystems.
+  # Use the one that matches the committed lockfile.
+  # - package-ecosystem: "pip"
+  #   directories: ["/"] # REPLACE: the directories that contain a requirements.txt or pyproject.toml
+  #   patterns: ["*"]
+  #   cooldown:
+  #     default-days: 14
+  #   multi-ecosystem-group: "dependencies"
+
+  # - package-ecosystem: "maven"
+  #   directories: ["/"] # REPLACE: the directories that contain a pom.xml
+  #   patterns: ["*"]
+  #   cooldown:
+  #     default-days: 14
+  #   multi-ecosystem-group: "dependencies"
