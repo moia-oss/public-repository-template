@@ -1,3 +1,3 @@
 # The owners must review each change to the files that match the pattern.
-# Replace the placeholder with the owning team before the first release.
-* @moia-oss/REPLACE-WITH-OWNING-TEAM
+# Remove the comment mark and replace the example with the owning team before the first release.
+# * @moia-oss/<owning-team>
